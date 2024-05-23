@@ -1,10 +1,9 @@
 FROM redhat/ubi8:8.10
 
-# Redhat environment with ASF MapReady Perl
+# Redhat environment with ASF MapReady
 
 # Build apps
-RUN yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm && \
-    yum update -y && \
+RUN yum update -y && \
     yum install -y cmake cpan gcc perl perl-DBI sudo \
                    libaio git gcc-c++ sqlite-devel \
                    libtiff-devel libcurl-devel glib2-devel \
