@@ -83,7 +83,7 @@ Usage:
 
 ## Caveats
 
-### _This code is old, the original repo has seen activity in years._
+### _This code is old, the original repo hasn't seen activity in years._
 
 ### _There is lots more clean-up to do_
 
