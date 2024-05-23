@@ -16,13 +16,9 @@ env:
 jobs:
 
   build-and-push-image:
-
     runs-on: ubuntu-latest
 
-    environment: ${{ needs.setup.outputs.environment }}
-
     env:
-      DEPLOY_PREFIX: ${{ needs.setup.outputs.deploy_prefix }}
       AWS_DEFAULT_REGION: us-west-2
       BASE_IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG_NAME }}
 
