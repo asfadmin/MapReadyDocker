@@ -22,7 +22,7 @@ This was a big one. There is an [implicit dependancy](https://github.com/asfadmi
 
 ### [libgeotiff](https://trac.osgeo.org/geotiff/) [`v1.4.3`](https://github.com/OSGeo/libgeotiff/releases/tag/1.4.3)
 
-I needed version of `libgeotiff` that was old enough to work with the ancient version of `prof`, but new enough that it had all the `cmake` architecture and `pkgconfig` support.
+I needed version of `libgeotiff` that was old enough to work with the ancient version of `prof`, but new enough that it had all the `cmake` architecture and `pkgconfig` support. Also, it had to a [`libgeotiff` version < 1.5](https://github.com/OSGeo/libgeotiff/commit/3c3351849fa010afafc23df73ed137c2eab0e1d2) when `PJ_CONTEXT` was introduced, causing Issue #[505](https://github.com/asfadmin/ASF_MapReady/issues/505). 
 
 ### [gsl](https://www.gnu.org/software/gsl/) `v2.1`
 
