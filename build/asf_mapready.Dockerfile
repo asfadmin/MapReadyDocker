@@ -1,10 +1,10 @@
-FROM redhat/ubi8:8.10
+FROM redhat/ubi8:8.10 as builder
 
 # Redhat environment with ASF MapReady
 
 # Build apps
 RUN yum update -y && \
-    yum install -y cmake cpan gcc perl perl-DBI sudo \
+    yum install -y cmake gcc perl \
                    libaio git gcc-c++ sqlite-devel \
                    libtiff-devel libcurl-devel glib2-devel \
                    libjpeg-turbo-devel libpng-devel \
@@ -115,10 +115,12 @@ RUN cd /tmp/build_mp && \
     export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig &&  \
     export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/ && \
     export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/HDF_Group/HDF5/${hdf5_ver}/lib/pkgconfig/ && \
-    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig/ && \
     export CFLAGS="-I/usr/include -I/usr/local/include/CUnit/ -I/usr/local/include/CUnit/ -DACCEPT_USE_OF_DEPRECATED_PROJ_API_H=1" && \
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ && \
     ./configure && make && make install && \
     rm -rf /tmp/build_mp
+
+FROM scratch
+COPY --from=builder / /
 
 ENTRYPOINT /bin/bash
