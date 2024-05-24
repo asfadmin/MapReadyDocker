@@ -118,6 +118,7 @@ RUN cd /tmp/build_mp && \
     export CFLAGS="-I/usr/include -I/usr/local/include/CUnit/ -I/usr/local/include/CUnit/ -DACCEPT_USE_OF_DEPRECATED_PROJ_API_H=1" && \
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ && \
     ./configure && make && make install && \
+    echo "/usr/local/lib/" > /etc/ld.so.conf.d/mapready.conf && ldconfig && \
     rm -rf /tmp/build_mp
 
 FROM scratch
