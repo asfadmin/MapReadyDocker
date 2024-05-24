@@ -55,10 +55,7 @@ I think there was some problem with newer version, but I don't recall the specif
 
 ```
 # Pull public image from GitHub Container Registry
-docker run -it ghcr.io/asfadmin/mapready:v1.1.0
-
-# Add /usr/local/lib/ to LD_LIBRARY_PATH
-[root@43b365c2b259 /]# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+docker run -it ghcr.io/asfadmin/mapready:v1.1.1
 
 # Do MapReady Stuff
 [root@43b365c2b259 /]# /usr/local/bin/asf_import 
